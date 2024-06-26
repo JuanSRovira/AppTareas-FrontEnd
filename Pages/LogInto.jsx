@@ -23,14 +23,13 @@ const LogInto = () => {
     }
     
     return (
-        <section className="heading">
             <>
+                <section className="heading">
                 <h1>
                     <FaSignInAlt/> Login
                 </h1>
-                <p>
-                        Bienvenido, coloca tus credenciales
-                </p>
+                <p>Bienvenido, coloca tus credenciales</p>
+                </section>
     
                 <section className="form">
                     <form onSubmit={onSubmit}>
@@ -40,14 +39,14 @@ const LogInto = () => {
                         </div>
                         <div className="form-group">
                             <button type="submit" className="btn btn-block">
-                                Submit
+                                Login
                             </button>
                         </div>
                     </form>
-                </section>
+                
     
+                </section>
             </>
-        </section>
         )
     }
     
