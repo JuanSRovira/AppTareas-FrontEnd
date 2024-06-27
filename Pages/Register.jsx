@@ -32,7 +32,7 @@ const Register = () => {
             //ERRORPATH Este esta definido en el AuthSlice, en los ExtraReducers
         }
         if (isSuccess) {
-            navigate('/login')
+            navigate('/logInto')
         }
 
         dispatch(reset())

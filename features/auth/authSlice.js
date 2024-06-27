@@ -38,6 +38,15 @@ export const register = createAsyncThunk('auth/register', async(user, thunkAPI) 
     }
 })
 //------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//FUNCION PARA OUTLOG EL USER===============================================================================================================//
+export const logOut = createAsyncThunk('auth/logOut', async () => {
+    await authService.logOut()
+})
+
+
+
+
 export const authSlice = createSlice ({
     name: 'auth',
     initialState,
@@ -48,6 +57,7 @@ export const authSlice = createSlice ({
             state.isError = false
             state.message = ''
         },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(register.pending, (state) => {
@@ -65,8 +75,26 @@ export const authSlice = createSlice ({
                 state.message = action.payload
                 state.user = null
             })
+            .addCase(login.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(login.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.user = action.payload
+            })
+            //ERRORPATH Aqui se define QUE SI HAY UN ERROR se mande un mensaje
+            .addCase(login.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+                state.user = null
+            })
+            .addCase(logOut.fulfilled, (state) => {
+                state.isSuccess = true
+                state.user = null
+            })
         }
-    }
 })
 
 export const {reset} = authSlice.actions
