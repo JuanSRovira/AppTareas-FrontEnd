@@ -79,10 +79,17 @@ h1, h2, h3 {
     color: #828282;
 }
 
-.tarea {
+.tareas {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+}
+
+.tarea {
+    background-color: #cacaca;
+    margin: 10px 0;
+    padding: 20px 0 10px;
+    position: relative;
 }
 
 .tarea .close {

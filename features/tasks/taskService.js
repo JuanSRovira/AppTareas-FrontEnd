@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL= 'http://localhost:5000/api/tareas'
+const API_URL= 'http://localhost:5000/api/tareas/'
 
 //CREAR UNA TAREA
 const crearTarea = async (tareaData, token) => {
@@ -14,8 +14,34 @@ const crearTarea = async (tareaData, token) => {
     return response.data
 }
 
+//OBTENER LISTA DE TAREAS DEL USUARIO
+const getTareas = async ( token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.get(API_URL, config)
+
+    return response.data
+}
+
+//Borrar tarea
+const deleteTarea = async (idtarea, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.delete(API_URL+idtarea, config)
+
+    return response.data
+}
+
 const tareaService = {
-    crearTarea
+    crearTarea,
+    getTareas,
+    deleteTarea
 }
 
 export default tareaService
