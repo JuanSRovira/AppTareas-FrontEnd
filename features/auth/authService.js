@@ -1,6 +1,6 @@
 import axios from 'axios'; //Esta es la que se conectara al backend
 
-const API_URL = 'https://appdenotas.onrender.com/'
+const API_URL = 'https://appdenotas.onrender.com/api/users/'
 
 const login = async (userData) => {
     const response = await axios.post(`${API_URL}login`, userData) //<====== POST es la funcion de Postman 

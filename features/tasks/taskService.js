@@ -2,7 +2,7 @@ import axios from 'axios'
 
 //const API_URL= 'http://localhost:5000/api/tareas/'
 
-const API_URL= 'https://appdenotas.onrender.com/'
+const API_URL= 'https://appdenotas.onrender.com/api/tareas/'
 
 //CREAR UNA TAREA
 const crearTarea = async (tareaData, token) => {
